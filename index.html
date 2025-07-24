@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio | Flávio Félix</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts (Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom CSS for animations and details -->
+    <style>
+      /* Setting the default font for the entire page */
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #0a192f; /* Um azul marinho bem escuro */
+        color: #ccd6f6;
+      }
+
+      /* Custom accent color */
+      .text-accent {
+        color: #64ffda;
+      }
+      .bg-accent {
+        background-color: #64ffda;
+      }
+      .border-accent {
+        border-color: #64ffda;
+      }
+
+      /* Typing effect cursor */
+      .typing-cursor {
+        border-right: 0.15em solid #64ffda;
+        animation: blink-caret 0.75s step-end infinite;
+      }
+
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: #64ffda;
+        }
+      }
+
+      /* Scroll-triggered fade-in animation */
+      .fade-in-section {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .fade-in-section.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Glassmorphism effect for the header */
+      header.glass {
+        background: rgba(10, 25, 47, 0.85);
+        backdrop-filter: blur(10px);
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <!-- Header -->
+    <header
+      id="header"
+      class="glass fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+    >
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="#home" class="text-2xl font-bold text-accent">FF.</a>
+        <nav class="hidden md:flex items-center space-x-8">
+          <a
+            href="#about"
+            class="hover:text-accent transition-colors duration-300"
+            >Sobre</a
+          >
+          <a
+            href="#skills"
+            class="hover:text-accent transition-colors duration-300"
+            >Habilidades</a
+          >
+          <a
+            href="#projects"
+            class="hover:text-accent transition-colors duration-300"
+            >Projetos</a
+          >
+          <a
+            href="#contact"
+            class="hover:text-accent transition-colors duration-300"
+            >Contato</a
+          >
+        </nav>
+        <a
+          href="https://www.linkedin.com/in/flavio-felix/"
+          target="_blank"
+          class="hidden md:block border border-accent text-accent px-4 py-2 rounded-md hover:bg-accent hover:text-slate-900 transition-all duration-300"
+        >
+          LinkedIn
+        </a>
+        <button id="mobile-menu-button" class="md:hidden text-accent">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden">
+        <nav class="flex flex-col items-center space-y-4 py-4">
+          <a
+            href="#about"
+            class="hover:text-accent transition-colors duration-300"
+            >Sobre</a
+          >
+          <a
+            href="#skills"
+            class="hover:text-accent transition-colors duration-300"
+            >Habilidades</a
+          >
+          <a
+            href="#projects"
+            class="hover:text-accent transition-colors duration-300"
+            >Projetos</a
+          >
+          <a
+            href="#contact"
+            class="hover:text-accent transition-colors duration-300"
+            >Contato</a
+          >
+          <a
+            href="https://www.linkedin.com/in/flavio-felix/"
+            target="_blank"
+            class="mt-4 border border-accent text-accent px-4 py-2 rounded-md hover:bg-accent hover:text-slate-900 transition-all duration-300"
+          >
+            LinkedIn
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-6">
+      <!-- Hero Section -->
+      <section
+        id="home"
+        class="min-h-screen flex flex-col justify-center items-start"
+      >
+        <div class="max-w-4xl">
+          <p class="text-accent text-lg mb-4">Olá, meu nome é</p>
+          <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold text-slate-100">
+            Flávio Félix
+          </h1>
+          <h2
+            class="text-3xl sm:text-5xl md:text-6xl font-bold text-slate-400 mt-2"
+          >
+            Eu construo para a
+            <span id="typing-text" class="text-accent typing-cursor"></span>
+          </h2>
+          <p class="mt-6 max-w-2xl text-lg text-slate-400">
+            Sou um desenvolvedor apaixonado por criar soluções digitais
+            inovadoras e experiências de usuário memoráveis. Especializado em
+            tecnologias modernas para construir aplicações web robustas e
+            escaláveis.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a
+              href="#projects"
+              class="bg-accent text-slate-900 font-bold py-3 px-8 rounded-md hover:bg-opacity-80 transition-all duration-300"
+            >
+              Veja meus projetos
+            </a>
+            <a
+              href="/caminho/para/seu_cv.pdf"
+              download="CV_Flavio_Felix.pdf"
+              class="border border-accent text-accent font-bold py-3 px-8 rounded-md hover:bg-accent hover:text-slate-900 transition-all duration-300"
+            >
+              Download CV
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="py-24 fade-in-section">
+        <h2 class="text-3xl font-bold mb-2 text-center text-slate-100">
+          <span class="text-accent">01.</span> Sobre Mim
+        </h2>
+        <div class="w-24 h-1 bg-accent mx-auto mb-12"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
+          <div class="md:col-span-3 text-lg text-slate-400 space-y-4">
+            <p>
+              Olá! Sou Flávio, um entusiasta da tecnologia com um forte foco em
+              desenvolvimento Full Stack. Minha jornada na programação começou
+              com um simples "Hello, World!" e desde então, tenho me dedicado a
+              aprender e dominar as ferramentas que moldam a web moderna, do
+              Frontend ao Backend.
+            </p>
+            <p>
+              Acredito que a melhor forma de aprender é construindo. Por isso,
+              estou sempre envolvido em novos projetos, seja para aprimorar
+              minhas habilidades ou para transformar ideias em realidade. Tenho
+              experiência em todo o ciclo de vida do desenvolvimento de
+              software, desde o conceito inicial até o deploy em produção.
+            </p>
+          </div>
+          <div class="md:col-span-2 flex justify-center">
+            <div
+              class="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden relative group"
+            >
+              <img
+                src="https://avatars.githubusercontent.com/u/42551220?v=4"
+                alt="Foto de Flávio Félix"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-accent opacity-0 group-hover:opacity-30 transition-opacity duration-300"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="py-24 fade-in-section">
+        <h2 class="text-3xl font-bold mb-2 text-center text-slate-100">
+          <span class="text-accent">02.</span> Habilidades
+        </h2>
+        <div class="w-24 h-1 bg-accent mx-auto mb-12"></div>
+
+        <div
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 text-center"
+        >
+          <div
+            class="flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+              class="h-16 w-16 rounded"
+            />
+            <p class="mt-4 font-semibold text-slate-300">JavaScript</p>
+          </div>
+          <div
+            class="flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+              class="h-16 w-16"
+            />
+            <p class="mt-4 font-semibold text-slate-300">React</p>
+          </div>
+          <div
+            class="flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+              class="h-16 w-16"
+            />
+            <p class="mt-4 font-semibold text-slate-300">Node.js</p>
+          </div>
+          <div
+            class="flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+              class="h-16 w-16"
+            />
+            <p class="mt-4 font-semibold text-slate-300">Python</p>
+          </div>
+          <div
+            class="flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+              class="h-16 w-16"
+            />
+            <p class="mt-4 font-semibold text-slate-300">Docker</p>
+          </div>
+          <div
+            class="flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg"
+              class="h-16 w-16"
+            />
+            <p class="mt-4 font-semibold text-slate-300">MySQL</p>
+          </div>
+          <div
+            class="flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+              class="h-16 w-16"
+            />
+            <p class="mt-4 font-semibold text-slate-300">HTML5</p>
+          </div>
+          <div
+            class="flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+              class="h-16 w-16"
+            />
+            <p class="mt-4 font-semibold text-slate-300">CSS3</p>
+          </div>
+          <div
+            class="flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+              class="h-16 w-16"
+            />
+            <p class="mt-4 font-semibold text-slate-300">Java</p>
+          </div>
+          <div
+            class="flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+              class="h-16 w-16"
+            />
+            <p class="mt-4 font-semibold text-slate-300">Git</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section Wrapper -->
+      <section id="projects" class="py-24 fade-in-section">
+        <h2 class="text-3xl font-bold mb-2 text-center text-slate-100">
+          <span class="text-accent">03.</span> Projetos que Construí
+        </h2>
+        <div class="w-24 h-1 bg-accent mx-auto mb-12"></div>
+
+        <!-- Sub-section Fundamentos -->
+        <div id="fundamentos" class="mb-20">
+          <h3 class="text-2xl font-bold text-slate-200 mb-8">Fundamentos</h3>
+          <div
+            id="fundamentos-container"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            <!-- Projetos de Fundamentos serão injetados aqui pelo JavaScript -->
+          </div>
+        </div>
+
+        <!-- Sub-section Frontend -->
+        <div id="frontend" class="mb-20">
+          <h3 class="text-2xl font-bold text-slate-200 mb-8">Frontend</h3>
+          <div
+            id="frontend-container"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            <!-- Projetos de Frontend serão injetados aqui pelo JavaScript -->
+          </div>
+        </div>
+
+        <!-- Sub-section Backend -->
+        <div id="backend" class="mb-20">
+          <h3 class="text-2xl font-bold text-slate-200 mb-8">Backend</h3>
+          <div
+            id="backend-container"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            <!-- Projetos de Backend serão injetados aqui pelo JavaScript -->
+          </div>
+        </div>
+
+        <!-- Sub-section Python -->
+        <div id="python" class="mb-20">
+          <h3 class="text-2xl font-bold text-slate-200 mb-8">Python</h3>
+          <div
+            id="python-container"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            <!-- Projetos de Python serão injetados aqui pelo JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-24 text-center fade-in-section">
+        <h2 class="text-2xl font-bold mb-2 text-slate-100">
+          <span class="text-accent">04.</span> Qual o próximo passo?
+        </h2>
+        <h3 class="text-4xl md:text-5xl font-bold text-slate-200 mb-4">
+          Entre em Contato
+        </h3>
+        <p class="max-w-xl mx-auto text-slate-400 mb-8">
+          Estou sempre aberto a novas oportunidades e colaborações. Se você tem
+          um projeto em mente, uma vaga interessante ou apenas quer dizer oi,
+          minha caixa de entrada está sempre aberta.
+        </p>
+        <a
+          href="mailto:flavioleandrovasco@gmail.com"
+          class="bg-accent text-slate-900 font-bold py-4 px-10 rounded-md hover:bg-opacity-80 transition-all duration-300 text-lg"
+        >
+          Diga Olá!
+        </a>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6">
+      <div class="container mx-auto px-6 text-center text-slate-400">
+        <div class="flex justify-center space-x-6 mb-4">
+          <a
+            href="https://github.com/fau-33"
+            target="_blank"
+            class="hover:text-accent transition-colors"
+            ><i data-lucide="github" class="w-6 h-6"></i
+          ></a>
+          <a
+            href="https://linkedin.com/in/flavio-felix-vasconcelos"
+            target="_blank"
+            class="hover:text-accent transition-colors"
+            ><i data-lucide="linkedin" class="w-6 h-6"></i
+          ></a>
+        </div>
+        <p>Desenvolvido por Flávio Félix</p>
+        <p class="text-sm">Design inspirado em Brittany Chiang</p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // --- DADOS DOS SEUS PROJETOS ---
+        // IMPORTANTE: Para cada projeto, adicione o link do repositório no 'repoLink'.
+        // Para adicionar o link da Vercel/Netlify, substitua o '#' em 'liveLink' pela URL do seu projeto.
+        // O ícone de link externo só aparecerá se o 'liveLink' for diferente de '#'.
+        const projects = {
+          fundamentos: [
+            // Exemplo com link da Vercel para você ver como funciona:
+            {
+              title: "Projeto Zoo Functions",
+              repoLink: "https://github.com/fau-33/inv_repo_zoo_functions",
+              liveLink: "https://seu-projeto-aqui.vercel.app",
+            },
+            {
+              title: "Projeto Arte com Pixels",
+              repoLink: "https://github.com/fau-33/inv-report-arte-com-pixels",
+              liveLink: "#",
+            },
+            {
+              title: "Projeto Trybewarts",
+              repoLink: "https://github.com/fau-33/inv-report-trybewarts",
+              liveLink: "#",
+            },
+            {
+              title: "Projeto Js-unit-tests",
+              repoLink: "https://github.com/fau-33/inv-report-js-unit-tests",
+              liveLink: "#",
+            },
+            {
+              title: "Projeto Playground Functions",
+              repoLink:
+                "https://github.com/fau-33/inv-report-playground-functions",
+              liveLink: "#",
+            },
+          ],
+          frontend: [
+            {
+              title: "Projeto Shopping Cart",
+              repoLink:
+                "https://github.com/fau-33/inv-front-project-shopping-cart",
+              liveLink: "#",
+            },
+            {
+              title: "Projeto Solar System",
+              repoLink:
+                "https://github.com/fau-33/inv-front-project-solar-system",
+              liveLink: "#",
+            },
+            {
+              title: "Projeto Tryunfo",
+              repoLink: "https://github.com/fau-33/inv-front-project-tryunfo",
+              liveLink: "#",
+            },
+            {
+              title: "Projeto Trybetunes",
+              repoLink:
+                "https://github.com/fau-33/inv-front-project-trybetunes",
+              liveLink: "#",
+            },
+            {
+              title: "Projeto Testes em React",
+              repoLink:
+                "https://github.com/fau-33/inv-front-project-react-testing-library",
+              liveLink: "#",
+            },
+            {
+              title: "Projeto Trybewallet",
+              repoLink:
+                "https://github.com/fau-33/inv-front-project-trybewallet",
+              liveLink: "#",
+            },
+            {
+              title: "Projeto starwars planets search",
+              repoLink:
+                "https://github.com/fau-33/inv-front-project-starwars-planets-search",
+              liveLink: "#",
+            },
+          ],
+          backend: [
+            {
+              title: "Projeto Docker Todo-list",
+              repoLink:
+                "https://github.com/fau-33/inv-back-project-docker-todo-list",
+              liveLink: "#",
+            },
+            {
+              title: "Projeto MYSQL All for one",
+              repoLink:
+                "https://github.com/fau-33/inv-back-project-all-for-one",
+              liveLink: "#",
+            },
+            {
+              title: "Projeto MYSQL One for all",
+              repoLink:
+                "https://github.com/fau-33/inv-back-project-mysql-one-for-all",
+              liveLink: "#",
+            },
+            {
+              title: "Projeto Talker manage",
+              repoLink:
+                "https://github.com/fau-33/inv-back-project-talker-manager",
+              liveLink: "#",
+            },
+            {
+              title: "Projeto Store manager",
+              repoLink:
+                "https://github.com/fau-33/inv-back-project-store-manager",
+              liveLink: "#",
+            },
+            {
+              title: "Projeto Blogs API",
+              repoLink: "https://github.com/fau-33/inv-back-project-blogs-api",
+              liveLink: "#",
+            },
+            {
+              title: "Projeto Trybesmith",
+              repoLink: "https://github.com/fau-33/inv-back-project-trybesmith",
+              liveLink: "#",
+            },
+            {
+              title: "Projeto Trybers and dragons",
+              repoLink:
+                "https://github.com/fau-33/inv-back-project-trybers-and-dragons",
+              liveLink: "#",
+            },
+            {
+              title: "Projeto Trybe futebol clube",
+              repoLink:
+                "https://github.com/fau-33/inv-back-project-trybe-futebol-clube",
+              liveLink: "#",
+            },
+          ],
+          python: [
+            {
+              title: "Project algorithms",
+              repoLink: "https://github.com/fau-33/inv-cs-project-algorithms",
+              liveLink: "#",
+            },
+            {
+              title: "Project Ting",
+              repoLink: "https://github.com/fau-33/inv-cs-project-ting",
+              liveLink: "#",
+            },
+            {
+              title: "Project Restaurant orders",
+              repoLink:
+                "https://github.com/fau-33/inv-cs-project-restaurant-orders",
+              liveLink: "#",
+            },
+            {
+              title: "Projeto Inventory-report",
+              repoLink:
+                "https://github.com/fau-33/inv-acpy-projeto-inventory-report",
+              liveLink: "#",
+            },
+            {
+              title: "Projeto Pro-filer",
+              repoLink: "https://github.com/fau-33/inv-acpy-projeto-pro-filer",
+              liveLink: "#",
+            },
+          ],
+        };
+
+        // --- Função para criar e popular os cards de projeto ---
+        function populateProjects() {
+          for (const category in projects) {
+            const container = document.getElementById(`${category}-container`);
+            if (container) {
+              const projectsArray = projects[category];
+              let projectsHTML = "";
+              projectsArray.forEach((project) => {
+                // Lógica para mostrar o ícone de link externo apenas se o link existir
+                const liveLinkIcon =
+                  project.liveLink && project.liveLink !== "#"
+                    ? `<a href="${project.liveLink}" target="_blank" title="Ver demonstração ao vivo" class="text-slate-300 hover:text-accent transition-colors">
+                                    <i data-lucide="external-link" class="w-6 h-6"></i>
+                                </a>`
+                    : "";
+
+                projectsHTML += `
+                                <div class="bg-slate-800 rounded-lg overflow-hidden flex flex-col group hover:-translate-y-2 transition-transform duration-300">
+                                    <div class="p-6 flex flex-col flex-grow">
+                                        <h3 class="text-xl font-bold text-slate-100 mb-2">${
+                                          project.title
+                                        }</h3>
+                                        <p class="text-slate-400 mb-4 flex-grow">
+                                            Um projeto de ${
+                                              category.charAt(0).toUpperCase() +
+                                              category.slice(1)
+                                            } que demonstra minhas habilidades e conhecimentos na área.
+                                        </p>
+                                        <div class="mt-auto flex justify-end space-x-4">
+                                            <a href="${
+                                              project.repoLink
+                                            }" target="_blank" title="Ver código no GitHub" class="text-slate-300 hover:text-accent transition-colors">
+                                                <i data-lucide="github" class="w-6 h-6"></i>
+                                            </a>
+                                            ${liveLinkIcon}
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+              });
+              container.innerHTML = projectsHTML;
+            }
+          }
+        }
+
+        // --- Lógica Principal da Página ---
+        populateProjects();
+        lucide.createIcons();
+
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        mobileMenuButton.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+          const icon = mobileMenuButton.querySelector("i");
+          icon.setAttribute(
+            "data-lucide",
+            mobileMenu.classList.contains("hidden") ? "menu" : "x"
+          );
+          lucide.createIcons();
+        });
+
+        const typingText = document.getElementById("typing-text");
+        const words = ["web.", "futuro.", "inovação."];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+          const currentWord = words[wordIndex];
+          const typeSpeed = isDeleting ? 100 : 200;
+          typingText.textContent = currentWord.substring(0, charIndex);
+          if (!isDeleting && charIndex < currentWord.length) {
+            charIndex++;
+          } else if (isDeleting && charIndex > 0) {
+            charIndex--;
+          } else {
+            isDeleting = !isDeleting;
+            if (!isDeleting) {
+              wordIndex = (wordIndex + 1) % words.length;
+            }
+          }
+          setTimeout(type, isDeleting ? typeSpeed / 2 : typeSpeed);
+        }
+        type();
+
+        const faders = document.querySelectorAll(".fade-in-section");
+        const appearOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+        const appearOnScroll = new IntersectionObserver(function (
+          entries,
+          appearOnScroll
+        ) {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            appearOnScroll.unobserve(entry.target);
+          });
+        },
+        appearOptions);
+        faders.forEach((fader) => appearOnScroll.observe(fader));
+
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            if (!mobileMenu.classList.contains("hidden")) {
+              mobileMenu.classList.add("hidden");
+              const icon = mobileMenuButton.querySelector("i");
+              icon.setAttribute("data-lucide", "menu");
+              lucide.createIcons();
+            }
+            document
+              .querySelector(this.getAttribute("href"))
+              .scrollIntoView({ behavior: "smooth" });
+          });
+        });
+
+        let lastScrollTop = 0;
+        const header = document.getElementById("header");
+        window.addEventListener("scroll", function () {
+          let scrollTop =
+            window.pageYOffset || document.documentElement.scrollTop;
+          if (scrollTop > lastScrollTop && scrollTop > 100) {
+            header.style.top = "-100px";
+          } else {
+            header.style.top = "0";
+          }
+          lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+      });
+    </script>
+  </body>
+</html>
