@@ -70,6 +70,29 @@
       .group:hover .project-card-image {
         filter: grayscale(0%) contrast(100%);
       }
+      .skill-progress-circle {
+        position: relative;
+        width: 100px;
+        height: 100px;
+      }
+      .skill-progress-circle svg {
+        transform: rotate(-90deg);
+      }
+      .skill-progress-circle .progress-ring {
+        transition: stroke-dashoffset 1.5s ease-in-out;
+      }
+      .skill-card {
+        position: relative;
+      }
+      .skill-percentage {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #64ffda;
+      }
     </style>
   </head>
   <body class="antialiased">
@@ -247,94 +270,354 @@
             class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 text-center"
           >
             <div
-              class="flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+              class="skill-card flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+              data-skill="90"
             >
+              <div class="skill-progress-circle mb-4">
+                <svg width="100" height="100">
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="#1e293b"
+                    stroke-width="8"
+                    fill="none"
+                  />
+                  <circle
+                    class="progress-ring"
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="#64ffda"
+                    stroke-width="8"
+                    fill="none"
+                    stroke-dasharray="283"
+                    stroke-dashoffset="283"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <span class="skill-percentage">0%</span>
+              </div>
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                class="h-16 w-16 rounded"
+                class="h-12 w-12 rounded mb-2"
               />
-              <p class="mt-4 font-semibold text-slate-300">JavaScript</p>
+              <p class="font-semibold text-slate-300">JavaScript</p>
             </div>
             <div
-              class="flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+              class="skill-card flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+              data-skill="85"
             >
+              <div class="skill-progress-circle mb-4">
+                <svg width="100" height="100">
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="#1e293b"
+                    stroke-width="8"
+                    fill="none"
+                  />
+                  <circle
+                    class="progress-ring"
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="#64ffda"
+                    stroke-width="8"
+                    fill="none"
+                    stroke-dasharray="283"
+                    stroke-dashoffset="283"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <span class="skill-percentage">0%</span>
+              </div>
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                class="h-16 w-16"
+                class="h-12 w-12 mb-2"
               />
-              <p class="mt-4 font-semibold text-slate-300">React</p>
+              <p class="font-semibold text-slate-300">React</p>
             </div>
             <div
-              class="flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+              class="skill-card flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+              data-skill="80"
             >
+              <div class="skill-progress-circle mb-4">
+                <svg width="100" height="100">
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="#1e293b"
+                    stroke-width="8"
+                    fill="none"
+                  />
+                  <circle
+                    class="progress-ring"
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="#64ffda"
+                    stroke-width="8"
+                    fill="none"
+                    stroke-dasharray="283"
+                    stroke-dashoffset="283"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <span class="skill-percentage">0%</span>
+              </div>
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-                class="h-16 w-16"
+                class="h-12 w-12 mb-2"
               />
-              <p class="mt-4 font-semibold text-slate-300">Node.js</p>
+              <p class="font-semibold text-slate-300">Node.js</p>
             </div>
             <div
-              class="flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+              class="skill-card flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+              data-skill="75"
             >
+              <div class="skill-progress-circle mb-4">
+                <svg width="100" height="100">
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="#1e293b"
+                    stroke-width="8"
+                    fill="none"
+                  />
+                  <circle
+                    class="progress-ring"
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="#64ffda"
+                    stroke-width="8"
+                    fill="none"
+                    stroke-dasharray="283"
+                    stroke-dashoffset="283"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <span class="skill-percentage">0%</span>
+              </div>
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                class="h-16 w-16"
+                class="h-12 w-12 mb-2"
               />
-              <p class="mt-4 font-semibold text-slate-300">Python</p>
+              <p class="font-semibold text-slate-300">Python</p>
             </div>
             <div
-              class="flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+              class="skill-card flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+              data-skill="70"
             >
+              <div class="skill-progress-circle mb-4">
+                <svg width="100" height="100">
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="#1e293b"
+                    stroke-width="8"
+                    fill="none"
+                  />
+                  <circle
+                    class="progress-ring"
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="#64ffda"
+                    stroke-width="8"
+                    fill="none"
+                    stroke-dasharray="283"
+                    stroke-dashoffset="283"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <span class="skill-percentage">0%</span>
+              </div>
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
-                class="h-16 w-16"
+                class="h-12 w-12 mb-2"
               />
-              <p class="mt-4 font-semibold text-slate-300">Docker</p>
+              <p class="font-semibold text-slate-300">Docker</p>
             </div>
             <div
-              class="flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+              class="skill-card flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+              data-skill="85"
             >
+              <div class="skill-progress-circle mb-4">
+                <svg width="100" height="100">
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="#1e293b"
+                    stroke-width="8"
+                    fill="none"
+                  />
+                  <circle
+                    class="progress-ring"
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="#64ffda"
+                    stroke-width="8"
+                    fill="none"
+                    stroke-dasharray="283"
+                    stroke-dashoffset="283"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <span class="skill-percentage">0%</span>
+              </div>
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg"
-                class="h-16 w-16"
+                class="h-12 w-12 mb-2"
               />
-              <p class="mt-4 font-semibold text-slate-300">MySQL</p>
+              <p class="font-semibold text-slate-300">MySQL</p>
             </div>
             <div
-              class="flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+              class="skill-card flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+              data-skill="95"
             >
+              <div class="skill-progress-circle mb-4">
+                <svg width="100" height="100">
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="#1e293b"
+                    stroke-width="8"
+                    fill="none"
+                  />
+                  <circle
+                    class="progress-ring"
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="#64ffda"
+                    stroke-width="8"
+                    fill="none"
+                    stroke-dasharray="283"
+                    stroke-dashoffset="283"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <span class="skill-percentage">0%</span>
+              </div>
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-                class="h-16 w-16"
+                class="h-12 w-12 mb-2"
               />
-              <p class="mt-4 font-semibold text-slate-300">HTML5</p>
+              <p class="font-semibold text-slate-300">HTML5</p>
             </div>
             <div
-              class="flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+              class="skill-card flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+              data-skill="90"
             >
+              <div class="skill-progress-circle mb-4">
+                <svg width="100" height="100">
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="#1e293b"
+                    stroke-width="8"
+                    fill="none"
+                  />
+                  <circle
+                    class="progress-ring"
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="#64ffda"
+                    stroke-width="8"
+                    fill="none"
+                    stroke-dasharray="283"
+                    stroke-dashoffset="283"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <span class="skill-percentage">0%</span>
+              </div>
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
-                class="h-16 w-16"
+                class="h-12 w-12 mb-2"
               />
-              <p class="mt-4 font-semibold text-slate-300">CSS3</p>
+              <p class="font-semibold text-slate-300">CSS3</p>
             </div>
             <div
-              class="flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+              class="skill-card flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+              data-skill="65"
             >
+              <div class="skill-progress-circle mb-4">
+                <svg width="100" height="100">
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="#1e293b"
+                    stroke-width="8"
+                    fill="none"
+                  />
+                  <circle
+                    class="progress-ring"
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="#64ffda"
+                    stroke-width="8"
+                    fill="none"
+                    stroke-dasharray="283"
+                    stroke-dashoffset="283"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <span class="skill-percentage">0%</span>
+              </div>
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-plain.svg"
-                class="h-16 w-16"
+                class="h-12 w-12 mb-2"
               />
-              <p class="mt-4 font-semibold text-slate-300">Java</p>
+              <p class="font-semibold text-slate-300">Java</p>
             </div>
             <div
-              class="flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+              class="skill-card flex flex-col items-center p-4 bg-slate-800 rounded-lg hover:scale-105 transition-transform duration-300"
+              data-skill="85"
             >
+              <div class="skill-progress-circle mb-4">
+                <svg width="100" height="100">
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="#1e293b"
+                    stroke-width="8"
+                    fill="none"
+                  />
+                  <circle
+                    class="progress-ring"
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="#64ffda"
+                    stroke-width="8"
+                    fill="none"
+                    stroke-dasharray="283"
+                    stroke-dashoffset="283"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <span class="skill-percentage">0%</span>
+              </div>
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
-                class="h-16 w-16"
+                class="h-12 w-12 mb-2"
               />
-              <p class="mt-4 font-semibold text-slate-300">Git</p>
+              <p class="font-semibold text-slate-300">Git</p>
             </div>
           </div>
         </section>
@@ -766,6 +1049,52 @@
           { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
         );
         faders.forEach((fader) => appearOnScroll.observe(fader));
+
+        // Skills progress animation
+        const skillsSection = document.getElementById("skills");
+        const skillCards = document.querySelectorAll(".skill-card");
+        const circumference = 2 * Math.PI * 45; // raio = 45
+
+        function animateSkillProgress(card) {
+          const skillValue = parseInt(card.getAttribute("data-skill"));
+          const progressRing = card.querySelector(".progress-ring");
+          const percentageText = card.querySelector(".skill-percentage");
+
+          const offset = circumference - (skillValue / 100) * circumference;
+          progressRing.style.strokeDashoffset = offset;
+
+          // Animate percentage text
+          let current = 0;
+          const increment = skillValue / 50;
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= skillValue) {
+              current = skillValue;
+              clearInterval(timer);
+            }
+            percentageText.textContent = Math.round(current) + "%";
+          }, 30);
+        }
+
+        const skillsObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                skillCards.forEach((card, index) => {
+                  setTimeout(() => {
+                    animateSkillProgress(card);
+                  }, index * 100); // Stagger animation
+                });
+                skillsObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.3 }
+        );
+
+        if (skillsSection) {
+          skillsObserver.observe(skillsSection);
+        }
 
         // Header visibility
         let lastScrollTop = 0;
