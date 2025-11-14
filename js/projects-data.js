@@ -18,6 +18,36 @@ const projects = {
       imageUrl:
         "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
+    {
+      title: "Visite Paraty",
+      repoLink: "https://github.com/fau-33/-visite-paraty",
+      liveLink: "https://visite-paraty-jet.vercel.app/",
+      description:
+        "Site institucional sobre a cidade histórica de Paraty, apresentando informações sobre a cidade, pontos turísticos, galeria de fotos e modo escuro, desenvolvido com HTML5, CSS3 e JavaScript.",
+      imageUrl:
+        "https://images.pexels.com/photos/2901209/pexels-photo-2901209.jpeg?auto=compress&cs=tinysrgb&w=600",
+      isFeatured: true,
+    },
+    {
+      title: "Gerador de Número Aleatório",
+      repoLink: "https://github.com/fau-33/projeto-numero-aleatorio",
+      liveLink: "https://projeto-numero-aleatorio-tau.vercel.app/",
+      description:
+        "Aplicação React/Next.js para gerar números aleatórios com gerenciamento de estado usando Hooks (useState, useContext) e Context API para alternância de tema Dark/Light Mode.",
+      imageUrl:
+        "https://images.pexels.com/photos/590570/pexels-photo-590570.jpeg?auto=compress&cs=tinysrgb&w=600",
+      isFeatured: true,
+    },
+    {
+      title: "Barbearia Classic",
+      repoLink: "https://github.com/fau-33/barbearia",
+      liveLink: "https://barbearia-two-orpin.vercel.app/",
+      description:
+        "Landing page para barbearia com seções de serviços, sobre nós e contato, incluindo mapa interativo, desenvolvido com HTML5 e CSS3.",
+      imageUrl:
+        "https://images.pexels.com/photos/1319460/pexels-photo-1319460.jpeg?auto=compress&cs=tinysrgb&w=600",
+      isFeatured: true,
+    },
   ],
   frontend: [
     {
@@ -82,8 +112,7 @@ const projects = {
     },
     {
       title: "Projeto Shopping Cart",
-      repoLink:
-        "https://github.com/fau-33/inv-front-project-shopping-cart",
+      repoLink: "https://github.com/fau-33/inv-front-project-shopping-cart",
       liveLink: "https://seu-projeto.vercel.app",
       description:
         "Interface de e-commerce funcional onde o usuário pode adicionar e remover itens de um carrinho, consumindo uma API para buscar produtos.",
@@ -93,8 +122,7 @@ const projects = {
     },
     {
       title: "Projeto Solar System",
-      repoLink:
-        "https://github.com/fau-33/inv-front-project-solar-system",
+      repoLink: "https://github.com/fau-33/inv-front-project-solar-system",
       liveLink: "https://seu-projeto.vercel.app",
       description:
         "Uma página web interativa que exibe os planetas do sistema solar, criada com React e focada na componentização e no gerenciamento de estado.",
@@ -103,8 +131,7 @@ const projects = {
     },
     {
       title: "Projeto Trybetunes",
-      repoLink:
-        "https://github.com/fau-33/inv-front-project-trybetunes",
+      repoLink: "https://github.com/fau-33/inv-front-project-trybetunes",
       liveLink: "https://seu-projeto.vercel.app",
       description:
         "Um clone de aplicativo de música que consome a API do iTunes para pesquisar álbuns, exibir músicas e favoritar faixas, construído com React.",
@@ -114,8 +141,7 @@ const projects = {
     },
     {
       title: "Projeto Trybewallet",
-      repoLink:
-        "https://github.com/fau-33/inv-front-project-trybewallet",
+      repoLink: "https://github.com/fau-33/inv-front-project-trybewallet",
       liveLink: "https://seu-projeto.vercel.app",
       description:
         "Uma carteira de controle de gastos com conversão de moedas, utilizando Redux para gerenciar o estado global da aplicação de forma centralizada.",
@@ -136,8 +162,7 @@ const projects = {
     },
     {
       title: "Projeto Store Manager",
-      repoLink:
-        "https://github.com/fau-33/inv-back-project-store-manager",
+      repoLink: "https://github.com/fau-33/inv-back-project-store-manager",
       liveLink: "#",
       description:
         "Uma API RESTful para gerenciar vendas e produtos de uma loja, construída com Node.js e MySQL, seguindo a arquitetura MSC.",
@@ -169,8 +194,7 @@ const projects = {
     },
     {
       title: "Projeto Inventory Report",
-      repoLink:
-        "https://github.com/fau-33/inv-acpy-projeto-inventory-report",
+      repoLink: "https://github.com/fau-33/inv-acpy-projeto-inventory-report",
       liveLink: "#",
       description:
         "Criação de um gerador de relatórios de inventário em Python que processa arquivos CSV, XML e JSON, aplicando os princípios de POO.",
@@ -179,4 +203,3 @@ const projects = {
     },
   ],
 };
-
