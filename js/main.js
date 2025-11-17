@@ -61,7 +61,8 @@ document.addEventListener("DOMContentLoaded", function () {
   function renderFeaturedCarousel() {
     const track = document.getElementById("carousel-track");
     const carouselSection = document.getElementById("featured-carousel");
-    if (!track || !carouselSection) return;
+    const indicatorsContainer = document.getElementById("carousel-indicators");
+    if (!track || !carouselSection || !indicatorsContainer) return;
 
     const featured = getFeaturedProjects(6);
     if (!featured.length) {
@@ -89,19 +90,69 @@ document.addEventListener("DOMContentLoaded", function () {
       )
       .join("");
 
+    indicatorsContainer.innerHTML = featured
+      .map(
+        (_, idx) =>
+          `<button class="carousel-indicator ${
+            idx === 0 ? "active" : ""
+          }" aria-label="Ir para o projeto ${idx + 1}" data-index="${idx}"></button>`
+      )
+      .join("");
+
+    const indicators = Array.from(
+      indicatorsContainer.querySelectorAll(".carousel-indicator")
+    );
+
     let currentIndex = 0;
+    let autoplayId = null;
+    const AUTOPLAY_INTERVAL = 4500;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    const setActiveIndicator = () => {
+      indicators.forEach((indicator, idx) => {
+        indicator.classList.toggle("active", idx === currentIndex);
+      });
+    };
+
     const updateCarousel = () => {
       track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      setActiveIndicator();
     };
-    updateCarousel();
+
+    const goToSlide = (index) => {
+      currentIndex = (index + featured.length) % featured.length;
+      updateCarousel();
+    };
+
+    const startAutoplay = () => {
+      if (prefersReducedMotion || autoplayId) return;
+      autoplayId = setInterval(() => {
+        goToSlide(currentIndex + 1);
+      }, AUTOPLAY_INTERVAL);
+    };
+
+    const pauseAutoplay = () => {
+      if (!autoplayId) return;
+      clearInterval(autoplayId);
+      autoplayId = null;
+    };
+
+    indicators.forEach((indicator) => {
+      indicator.addEventListener("click", () => {
+        const idx = Number(indicator.getAttribute("data-index"));
+        goToSlide(idx);
+        startAutoplay();
+      });
+    });
 
     function attachNav(buttonId, direction) {
       const button = document.getElementById(buttonId);
       if (!button) return;
       button.addEventListener("click", () => {
-        currentIndex =
-          (currentIndex + direction + featured.length) % featured.length;
-        updateCarousel();
+        goToSlide(currentIndex + direction);
+        startAutoplay();
       });
     }
 
@@ -109,6 +160,22 @@ document.addEventListener("DOMContentLoaded", function () {
     attachNav("carousel-next", 1);
     attachNav("carousel-prev-mobile", -1);
     attachNav("carousel-next-mobile", 1);
+
+    carouselSection.addEventListener("mouseenter", pauseAutoplay);
+    carouselSection.addEventListener("mouseleave", startAutoplay);
+    carouselSection.addEventListener("touchstart", pauseAutoplay, {
+      passive: true,
+    });
+    carouselSection.addEventListener("touchend", startAutoplay, {
+      passive: true,
+    });
+    window.addEventListener("visibilitychange", () => {
+      if (document.hidden) pauseAutoplay();
+      else startAutoplay();
+    });
+
+    updateCarousel();
+    startAutoplay();
   }
 
   function showMainContent() {
