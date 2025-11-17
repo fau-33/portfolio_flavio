@@ -48,6 +48,16 @@ const projects = {
         "https://images.pexels.com/photos/1319460/pexels-photo-1319460.jpeg?auto=compress&cs=tinysrgb&w=600",
       isFeatured: true,
     },
+    {
+      title: "Elevator Control",
+      repoLink: "https://github.com/fau-33/elevator",
+      liveLink: "https://elevator-rho.vercel.app/",
+      description:
+        "Simulador interativo de elevador desenvolvido com HTML, CSS e JavaScript, exibindo painéis de controle e lógica de movimentação entre andares.",
+      imageUrl:
+        "https://images.pexels.com/photos/139347/pexels-photo-139347.jpeg?auto=compress&cs=tinysrgb&w=600",
+      isFeatured: true,
+    },
   ],
   frontend: [
     {

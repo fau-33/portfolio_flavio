@@ -2,6 +2,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const mainContent = document.getElementById("main-content");
   const mainProjectsPage = document.getElementById("main-projects-page");
 
+  function getFeaturedProjects(limit) {
+    const featured = [];
+    for (const category in projects) {
+      projects[category].forEach((project) => {
+        if (project.isFeatured) {
+          featured.push(project);
+        }
+      });
+    }
+    return typeof limit === "number" ? featured.slice(0, limit) : featured;
+  }
+
   function createProjectCard(project) {
     const liveLinkHTML =
       project.liveLink && project.liveLink !== "#"
@@ -40,17 +52,63 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function populateMainProjects() {
     const container = document.getElementById("main-projects-container");
-    const featuredProjects = [];
-    for (const category in projects) {
-      projects[category].forEach((project) => {
-        if (project.isFeatured) {
-          featuredProjects.push(project);
-        }
-      });
-    }
+    const featuredProjects = getFeaturedProjects();
     container.innerHTML = featuredProjects
       .map(createProjectCard)
       .join("");
+  }
+
+  function renderFeaturedCarousel() {
+    const track = document.getElementById("carousel-track");
+    const carouselSection = document.getElementById("featured-carousel");
+    if (!track || !carouselSection) return;
+
+    const featured = getFeaturedProjects(6);
+    if (!featured.length) {
+      carouselSection.classList.add("hidden");
+      return;
+    }
+
+    track.innerHTML = featured
+      .map(
+        (project) => `
+          <div class="carousel-slide">
+            <img src="${project.imageUrl}" alt="${project.title}">
+            <h4>${project.title}</h4>
+            <p>${project.description}</p>
+            <div class="actions flex gap-4">
+              <a href="${project.repoLink}" target="_blank" class="text-accent hover:underline transition-colors">Ver código</a>
+              ${
+                project.liveLink && project.liveLink !== "#"
+                  ? `<a href="${project.liveLink}" target="_blank" class="text-accent hover:underline transition-colors">Ver demo</a>`
+                  : ""
+              }
+            </div>
+          </div>
+        `
+      )
+      .join("");
+
+    let currentIndex = 0;
+    const updateCarousel = () => {
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    };
+    updateCarousel();
+
+    function attachNav(buttonId, direction) {
+      const button = document.getElementById(buttonId);
+      if (!button) return;
+      button.addEventListener("click", () => {
+        currentIndex =
+          (currentIndex + direction + featured.length) % featured.length;
+        updateCarousel();
+      });
+    }
+
+    attachNav("carousel-prev", -1);
+    attachNav("carousel-next", 1);
+    attachNav("carousel-prev-mobile", -1);
+    attachNav("carousel-next-mobile", 1);
   }
 
   function showMainContent() {
@@ -68,6 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // --- Lógica Principal da Página ---
   populateAllProjects();
   populateMainProjects();
+  renderFeaturedCarousel();
   lucide.createIcons();
 
   // Page toggle listeners
